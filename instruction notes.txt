@@ -1,0 +1,8 @@
+findVehicle:
+
+        for(int i = 0; i < vehicles.length; i++)
+            if(vehicles[i].getRegistration().equals(reg)) return i;
+        // not found:
+        return -1;
+
+========================
