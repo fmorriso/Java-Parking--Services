@@ -56,6 +56,13 @@ public class Vehicle
 		if (hours <= 5)	return ADMIN_FEE;
 		return 0;
 	}
+
+	public char getKind() {
+		if (this instanceof Car) return 'c';
+		if (this instanceof MotorBike) return 'm';
+		return 'v';
+	}
+
 	
 	public String toString()
 	{

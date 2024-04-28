@@ -2,6 +2,8 @@ public class ParkingArea
 {
     private Vehicle vehicles[];
     private String name;
+    private int numCars = 0;
+    private int numMotorBikes = 0;
 
     /**
      * Creates a instance of a parking area using the specified name and capacity
@@ -55,6 +57,20 @@ public class ParkingArea
      */
     public int addVehicle(Vehicle v)
     {
+        switch (v.getKind()) {
+            case 'c':
+                numCars++;
+                if (numCars % 50 == 0) Vouchers.printCoffeeVoucher();
+                break;
+
+            case 'm':
+                numMotorBikes++;
+                if (numMotorBikes % 60 == 0) Vouchers.printCoffeeVoucher();
+                break;
+
+            default:
+                System.out.println("Invalid vehicle kind");
+        }
         for (int i = 0; i < vehicles.length; i++) {
             if (vehicles[i] == null) {
                 vehicles[i] = v;
