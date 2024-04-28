@@ -53,6 +53,7 @@ public class Vehicle
 	}
 
 	public double pay(int hours){
+		if (hours <= 5)	return ADMIN_FEE;
 		return 0;
 	}
 	
