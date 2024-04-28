@@ -1,30 +1,36 @@
-public class ParkingArea {
+public class ParkingArea
+{
     private Vehicle vehicles[];
     private String name;
 
     /**
      * Creates a instance of a parking area using the specified name and capacity
      *
-     * @param name - the name of the parking area
+     * @param name     - the name of the parking area
      * @param capacity - the number of parking spots, with a limit of 300 max.
      */
-    public ParkingArea(String name, int capacity) {
+    public ParkingArea(String name, int capacity)
+    {
         this.name = name;
         if (capacity > 300) capacity = 300;
         this.vehicles = new Vehicle[capacity];
     }
 
-    private ParkingArea() {/* prevent uninitialized instances */}
+    private ParkingArea()
+    {/* prevent uninitialized instances */}
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public int getCapacity() {
+    public int getCapacity()
+    {
         return vehicles.length;
     }
 
-    public String toString() {
+    public String toString()
+    {
         return String.format("Name: %s, capacity: %d", name, getCapacity());
     }
 
@@ -33,7 +39,11 @@ public class ParkingArea {
      * @return - integer index within the vehicles array where the vehicle was
      * found or -1 if not found.
      */
-    public int findVehicle(String reg) {
+    public int findVehicle(String reg)
+    {
+        for (int i = 0; i < vehicles.length; i++) {
+            if (vehicles[i].getRegistration().equals(reg)) return i;
+        }
         return -1;
     }
 
@@ -43,7 +53,8 @@ public class ParkingArea {
      * @param v - the Vehicle instance to add.
      * @return - the index of the slot the vehicle was placed into or -1 if no slots are available.
      */
-    public int addVehicle(Vehicle v) {
+    public int addVehicle(Vehicle v)
+    {
 
         for (int i = 0; i < vehicles.length; i++) {
             if (vehicles[i] == null) {
@@ -55,11 +66,12 @@ public class ParkingArea {
         return -1;
     }
 
-    public Vehicle removeVehicle(String reg) {
+    public Vehicle removeVehicle(String reg)
+    {
         Vehicle leaving = null;
         for (int i = 0; i < vehicles.length; i++) {
             if (vehicles[i] != null
-                    && vehicles[i].getRegistration().equals(reg) ) {
+                    && vehicles[i].getRegistration().equals(reg)) {
                 leaving = vehicles[i];
                 vehicles[i] = null;
                 return leaving;
