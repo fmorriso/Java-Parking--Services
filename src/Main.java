@@ -33,6 +33,14 @@ public class Main
 
         char kind = v3.getKind();
         System.out.format("Vehicle %s is of kind %c%n", v3.getRegistration(), kind);
+
+        String regId = v3.getRegistration();
+        Vehicle removed = pa1.removeVehicle(regId);
+        if (removed == null) 
+            System.out.format("Could not remove vechicle %s because it was not parked in this area.%n", regId);
+        else
+            System.out.format("Vehicle %s was removed from the parking area.%n", removed.getRegistration());            
+        
     }
 
     private static String getJavaVersion()
