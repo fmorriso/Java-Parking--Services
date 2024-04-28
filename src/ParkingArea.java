@@ -80,6 +80,11 @@ public class ParkingArea
         return -1;
     }
 
+    /**
+     * Remove the specified vehicle from the parking area using its registration code
+     * @param reg - the vehicle registration code
+     * @return the instance of the Vehicle that aw removed or null if no such vehicle was found.
+     */
     public Vehicle removeVehicle(String reg)
     {
         Vehicle leaving = null;
