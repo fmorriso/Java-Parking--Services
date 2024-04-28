@@ -55,14 +55,12 @@ public class ParkingArea
      */
     public int addVehicle(Vehicle v)
     {
-
         for (int i = 0; i < vehicles.length; i++) {
             if (vehicles[i] == null) {
                 vehicles[i] = v;
                 return i;
             }
         }
-
         return -1;
     }
 
