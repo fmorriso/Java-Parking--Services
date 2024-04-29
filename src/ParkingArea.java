@@ -93,7 +93,7 @@ public class ParkingArea
                     && vehicles[i].getRegistration().equals(reg)) {
                 leaving = vehicles[i];
                 vehicles[i] = null;
-                return leaving;
+                break;
             }
         }
         return leaving;
